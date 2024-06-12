@@ -1,0 +1,15 @@
+@mixin mobile {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+header {
+    width: fit-content;
+    margin: auto;
+
+    @include mobile {
+        text-align: center;
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,167 @@
+@mixin mobile {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+main {
+    background: #fff;
+    padding: 64px;
+    display: flex;
+    width: 717px;
+    height: 499px;
+    margin: auto;
+    font-size: 18px;
+    gap: 64px;
+    border-radius: 25px;
+
+    @include mobile {
+        display: block;
+        padding: 15px;
+        height: auto;
+        width: 90%;
+    }
+
+    .suggested-skills-wrapper {
+        @include mobile {
+            padding-top: 25px;
+        }
+
+        .suggested-skills-list {
+            color: var(--color-dark-blue);
+
+            .suggested-skills--title {
+                font-weight: 600;
+                margin: 0;
+            }
+
+            .suggested-skills--unordered-list {
+                list-style: none;
+                padding: 0;
+                margin-top: 10px;
+
+                li {
+                    button {
+                        background: none;
+                        border: none;
+                        font-size: 20px;
+                        margin-right: 5px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .top-skills-list {
+        .dropdown-wrapper {
+            position: relative;
+
+            &.is-hidden {
+                display: none;
+            }
+
+            input {
+                width: 99%;
+                height: 59px;
+                border-radius: 8px;
+                min-width: 392px;
+                border: 1px solid #e3e5f1;
+                font-size: 18px;
+                text-indent: 16px;
+                background: var(--color-light-grey);
+
+                @include mobile {
+                    width: 100%;
+                    min-width: unset;
+                }
+            }
+
+            button {
+                background: none;
+                border: none;
+                position: absolute;
+                top: 10px;
+                right: 7px;
+
+                i {
+                    font-size: 26px;
+                }
+            }
+        }
+        .skills-dropdown-options {
+            display: none;
+            flex-direction: column;
+            max-height: 140px;
+            overflow-y: scroll;
+            padding-top: 8px;
+            background: var(--color-light-grey);
+            margin-top: 10px;
+            border-radius: 8px;
+
+            /* width */
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+            
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+            
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: #555;
+            }
+
+            &.active {
+                display: flex;
+            }
+
+            a {
+                padding: 10px 20px;
+
+                &:hover {
+                    background: var(--color-dark-grey);
+                    cursor: pointer;
+                }
+            }
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+
+            li {
+                background: var(--color-dark-blue);
+                color: #fff;
+                width: 392px;
+                padding: 10px 16px;
+                margin-bottom: 18px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                @include mobile {
+                    width: 92%;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                button {
+                    background: none;
+                    border: none;
+                    outline: none;
+
+                    color: #fff;
+                    font-size: 30px;
+                    transform: rotate(45deg);
+                    font-weight: 200;
+                }
+            }
+        }
+    }
+}
